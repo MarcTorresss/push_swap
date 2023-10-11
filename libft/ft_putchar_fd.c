@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 15:31:50 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/11 17:57:45 by martorre         ###   ########.fr       */
+/*   Created: 2023/09/13 18:45:04 by martorre          #+#    #+#             */
+/*   Updated: 2023/09/13 20:03:17 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
+#include <fcntl.h>
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <limits.h>
-
-int	ft_error_test(int argc, char **argv);
-//int	ft_int_test(const char *str);
-
-typedef struct s_stack
+void	ft_putchar_fd(char c, int fd)
 {
-	int				*content;
-	struct s_stack	*next;
-}					t_stack;
+	write(fd, &c, 1);
+}
 
-#endif
+/*int main()
+{
+	int fd;
+	size_t i = 0;
+	char str[10] = "TORRES..";
+	
+	fd = open("TEST", O_CREAT | O_TRUNC | O_WRONLY, 777);
+	while (str[i])
+		ft_putchar_fd(str[i++], 2);
+	close(fd);
+	return (0);
+}*/

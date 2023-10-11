@@ -6,17 +6,17 @@
 #    By: martorre <martorre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 14:18:06 by martorre          #+#    #+#              #
-#    Updated: 2023/10/10 14:42:49 by martorre         ###   ########.fr        #
+#    Updated: 2023/10/11 16:35:08 by martorre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 	= push_swap
-FLAGS 	= -Wall -Wextra -Werror -I $(INCLUDE)
+FLAGS 	= -Wall -Wextra -Werror -I./libft
 INCLUDE = push_swap.h
 CC = cc
-DIR_OBJ = ./temp/
+DIR_OBJ = temp/
 
-SOURCES = \
+SOURCES = main.c num_utils.c
 
 OBJECTS = $(addprefix $(DIR_OBJ), $(SOURCES:.c=.o))
 
@@ -26,8 +26,7 @@ temp:
 	mkdir -p $(DIR_OBJ)
 
 $(NAME): $(OBJECTS)
-	@cp ./libft/libft.a $(NAME)
-	@$(LIB) $(NAME) $(OBJECTS)
+	@$(CC) $(FLAGS) $(OBJECTS) libft/libft.a -o $(NAME)
 	@echo Libft compiled
 
 all_test: temp MAKELIB test
@@ -39,7 +38,7 @@ MAKELIB:
 	$(MAKE) -C ./libft
 
 $(DIR_OBJ)%.o: %.c Makefile $(INCLUDE)
-	@$(CC)  -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 	@echo Compiling $< ...
 
 clean:

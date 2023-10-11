@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 15:31:50 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/11 17:57:45 by martorre         ###   ########.fr       */
+/*   Created: 2023/09/12 17:04:16 by martorre          #+#    #+#             */
+/*   Updated: 2023/09/12 19:01:47 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <limits.h>
-
-int	ft_error_test(int argc, char **argv);
-//int	ft_int_test(const char *str);
-
-typedef struct s_stack
+int	ft_isprint(int c)
 {
-	int				*content;
-	struct s_stack	*next;
-}					t_stack;
+	if (c >= 32 && c < 127)
+		return (1);
+	else
+		return (0);
+	return (0);
+}
+/*
+#include <stdio.h>
 
-#endif
+int	main(void)
+{
+	char	c[] = "holAA1AA";
+	int	i;
+	i = ft_isprint(c);
+	printf("Nos ha devuelto: %d",i);
+}*/

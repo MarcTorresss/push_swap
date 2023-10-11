@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 15:31:50 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/11 17:57:45 by martorre         ###   ########.fr       */
+/*   Created: 2023/09/13 19:06:42 by martorre          #+#    #+#             */
+/*   Updated: 2023/09/18 11:59:43 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <limits.h>
-
-int	ft_error_test(int argc, char **argv);
-//int	ft_int_test(const char *str);
-
-typedef struct s_stack
+void	ft_putnbr_fd(int n, int fd)
 {
-	int				*content;
-	struct s_stack	*next;
-}					t_stack;
+	long	nbr;
 
-#endif
+	nbr = (long)n;
+	if (nbr < 0)
+	{
+		nbr *= -1;
+		write(fd, "-", 1);
+	}
+	if (nbr >= 10)
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putnbr_fd(nbr % 10, fd);
+	}
+	else
+		ft_putchar_fd(nbr + '0', fd);
+}

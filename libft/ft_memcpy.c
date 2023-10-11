@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 15:31:50 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/11 17:57:45 by martorre         ###   ########.fr       */
+/*   Created: 2023/09/13 11:18:19 by martorre          #+#    #+#             */
+/*   Updated: 2023/09/13 12:28:43 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <limits.h>
-
-int	ft_error_test(int argc, char **argv);
-//int	ft_int_test(const char *str);
-
-typedef struct s_stack
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int				*content;
-	struct s_stack	*next;
-}					t_stack;
+	size_t	i;
+	char	*dstc;
+	char	*srcc;
 
-#endif
+	i = 0;
+	dstc = (char *)dst;
+	srcc = (char *)src;
+	if (!dstc && !srcc)
+		return (0);
+	while (i < n)
+	{
+		dstc[i] = srcc[i];
+		i++;
+	}
+	return (dstc);
+}
