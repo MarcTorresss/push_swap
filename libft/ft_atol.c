@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 17:27:59 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/23 16:48:34 by martorre         ###   ########.fr       */
+/*   Created: 2023/10/23 14:16:28 by martorre          #+#    #+#             */
+/*   Updated: 2023/10/23 14:21:15 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+long	ft_atol(const char *str)
 {
-	t_list	*tmp;
+	long	i;
+	long	result;
+	long	sig;
 
-	while (*lst != NULL)
+	i = 0;
+	result = 0;
+	sig = 1;
+	while (str[i] == ' ' || str[i] == '\r' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\t' || str[i] == '\n')
+		i++;
+	if (str[i] == '-')
+		sig *= -1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		tmp = *lst;
-		del((*lst)->content);
-		*lst = (*lst)->next;
-		free(tmp);
+		result *= 10;
+		result += (str[i] - '0');
+		i++;
 	}
+	return (result * sig);
 }

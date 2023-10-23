@@ -6,7 +6,7 @@
 #    By: martorre <martorre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/27 18:13:35 by pfontenl          #+#    #+#              #
-#    Updated: 2023/10/11 11:20:11 by martorre         ###   ########.fr        #
+#    Updated: 2023/10/23 14:20:24 by martorre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIB = ar rcs
 DIR_PRINTF = printf/
 DIR_OBJ = temp/
 
-SRC_LIBFT = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c\
+SRC_LIBFT = ft_atoi.c ft_atol.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c\
 ft_isdigit.c ft_isprint.c ft_memset.c ft_tolower.c ft_toupper.c ft_memcpy.c\
 ft_strdup.c ft_strlcat.c ft_strlen.c ft_strncmp.c ft_memmove.c ft_strlcpy.c ft_strchr.c\
 ft_strrchr.c ft_memchr.c ft_itoa.c ft_substr.c ft_memcmp.c ft_putchar_fd.c\

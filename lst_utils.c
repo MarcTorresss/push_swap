@@ -1,33 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lst_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 11:26:34 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/23 19:25:50 by martorre         ###   ########.fr       */
+/*   Created: 2023/10/23 13:30:02 by martorre          #+#    #+#             */
+/*   Updated: 2023/10/23 16:52:32 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_lstfree(t_stack *stack_a)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack	*tmp;
 
-	stack_b = NULL;
-	stack_a = malloc(sizeof(t_stack));
-	if (!stack_a)
-		return (0);
-	ft_error_test(argc, argv, stack_a);
-	stack_a = swap(stack_a);
-	//stack_a = ra_rotate(stack_a);
 	while (stack_a != NULL)
 	{
-		printf("%d\n", stack_a->content);
+		tmp = stack_a;
+		free(tmp);
 		stack_a = stack_a->next;
 	}
+}
+
+t_stack	*ft_save_num(int limit, char **str, t_stack *stack_a, int i)
+{
+	t_stack	*tmp;
+
+	tmp = stack_a;
+	while (i < limit)
+	{
+		stack_a->content = ft_atoi(str[i]);
+		if (i != limit - 1)
+		{
+			stack_a->next = malloc(sizeof(t_stack));
+			if (!stack_a->next)
+				return (ft_lstfree(tmp), NULL);
+		}
+		else
+			stack_a->next = NULL;
+		stack_a = stack_a->next;
+		i++;
+	}
+	return (tmp);
 }

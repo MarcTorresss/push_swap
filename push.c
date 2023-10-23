@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 17:27:59 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/23 16:48:34 by martorre         ###   ########.fr       */
+/*   Created: 2023/10/23 17:53:42 by martorre          #+#    #+#             */
+/*   Updated: 2023/10/23 19:06:15 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./push_swap.h"
+#include "./libft/libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+t_stack	*push(t_stack *stack, t_stack *add)
 {
-	t_list	*tmp;
+	int	len;
 
-	while (*lst != NULL)
-	{
-		tmp = *lst;
-		del((*lst)->content);
-		*lst = (*lst)->next;
-		free(tmp);
-	}
+	len = ft_listsize(add);
+	if (len > 0)
+		ft_listadd_front(&stack, add);
+	return (stack);
+}
+
+void	pa_push(t_stack *stack_a, t_stack *stack_b)
+{
+	push(stack_a,stack_b);
+	ft_printf("pa\n");
+}
+
+void	pb_push(t_stack *stack_a, t_stack *stack_b)
+{
+	push(stack_b,stack_a);
+	ft_printf("pb\n");
 }
