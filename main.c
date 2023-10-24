@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:26:34 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/23 19:25:50 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:35:03 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,32 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (0);
 	ft_error_test(argc, argv, stack_a);
-	stack_a = swap(stack_a);
-	//stack_a = ra_rotate(stack_a);
-	while (stack_a != NULL)
+	if (argc > 2)
 	{
-		printf("%d\n", stack_a->content);
-		stack_a = stack_a->next;
+		printf("MOVES\n");
+		/*stack_a = sa_sawp(stack_a);
+		pb_push(&stack_a, &stack_b);
+		pb_push(&stack_a, &stack_b);
+		pb_push(&stack_a, &stack_b);
+		rr_rotate(&stack_a, &stack_b);*/
+		stack_a = rra_reverse_rotate(stack_a);
+		//rrr_rotate(&stack_a, &stack_b);
+		/*stack_a = sa_sawp(stack_a);
+		pa_push(&stack_a, &stack_b);
+		pa_push(&stack_a, &stack_b);
+		pa_push(&stack_a, &stack_b);*/
+		printf("\nStack A\n");
+		while (stack_a != NULL)
+		{
+
+			printf("%d\n", stack_a->content);
+			stack_a = stack_a->next;
+		}
+		printf("\nStack B\n");
+		while (stack_b != NULL)
+		{
+			printf("%d\n", stack_b->content);
+			stack_b = stack_b->next;
+		}
 	}
 }
