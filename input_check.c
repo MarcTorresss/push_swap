@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:16:38 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/23 19:15:15 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:02:43 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	ft_error_test(int argc, char **argv, t_stack *stack_a)
 	char	**mat = NULL;
 	int		qttwords;
 
-	i = 1;
+	i = 0;
 	qttwords = 0;
 	if (argc == 2)
 	{
@@ -104,14 +104,14 @@ int	ft_error_test(int argc, char **argv, t_stack *stack_a)
 	}
 	else
 	{
-		while (i < argc)
-		{
+		while (++i < argc)
 			if (ft_int_test(argv[i]) == 1)
 				return (ft_putstr("Error\n"), 1);
-			i++;
-		}
 		if (ft_dup_test(argc, argv, 1) == 0)
 			ft_save_num(argc, argv, stack_a, 1);
+		else
+			return (1);
+		
 	}
 	return (0);
 }

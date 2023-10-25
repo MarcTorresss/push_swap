@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:54:27 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/24 14:21:22 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:51:35 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 
 t_stack	*rotate(t_stack *stack)
 {
-	int		len;
-	t_stack	*tmp = NULL;
+	t_stack	*tmp;
+	t_stack	*aux;
 
-	len = ft_list_size(stack);
-	if (len > 0)
+	aux = stack;
+	tmp = stack->next;
+	if (ft_list_size(stack) > 0)
 	{
-		tmp = stack->next; // TMP TIENE LA SEGUNDA UBI DE STACK I ESTA APUNTANDO A STACK 
-		stack->next = NULL; // STACK NO ESTA APUNTANDO A NADA POR LO TANTO QUE APUNTE A NULL
-		ft_list_add_back(&tmp, stack);
+		while (stack->next != NULL)
+			stack = stack->next;
+		stack->next = aux;
+		aux->next = NULL;
 	}
 	return (tmp);
 }

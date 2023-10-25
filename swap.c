@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:52:05 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/24 13:15:11 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:57:35 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 
 t_stack	*swap(t_stack *stack)
 {
-	int	len;
 	int	tmp;
 
 	tmp = 0;
-	len = ft_list_size(stack);
-	if (len > 0)
+	if (ft_list_size(stack) > 0)
 	{
 		tmp = stack->content;
 		stack->content = stack->next->content;

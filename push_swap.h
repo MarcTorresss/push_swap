@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:31:50 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/24 14:59:37 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:49:20 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,9 @@ void		ss_swap(t_stack **stack_a, t_stack **stack_b);
 t_stack		*push(t_stack *stack, t_stack **add);
 void		pa_push(t_stack **stack_a, t_stack **stack_b);
 void		pb_push(t_stack **stack_a, t_stack **stack_b);
+void		two_nums(t_stack **stack);
+void		three_nums(t_stack **stack);
+void		four_nums(t_stack **stack);
+int			find_min(t_stack *stack);
 
 #endif
