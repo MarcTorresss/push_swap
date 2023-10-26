@@ -6,7 +6,7 @@
 #    By: martorre <martorre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 14:18:06 by martorre          #+#    #+#              #
-#    Updated: 2023/10/25 13:56:22 by martorre         ###   ########.fr        #
+#    Updated: 2023/10/26 11:27:10 by martorre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ INCLUDE = push_swap.h
 CC = cc
 DIR_OBJ = temp/
 
-SOURCES = main.c input_check.c lst_utils.c lst_functions.c push.c\
-reverse_rotate.c rotate.c swap.c sort_nums.c
+SOURCES = main.c input_check.c lst_utils.c push.c reverse_rotate.c rotate.c\
+swap.c sort_nums.c sort_all.c\
 
 OBJECTS = $(addprefix $(DIR_OBJ), $(SOURCES:.c=.o))
 

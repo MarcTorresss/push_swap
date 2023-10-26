@@ -6,23 +6,22 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:53:42 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/25 13:59:57 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/25 19:49:53 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 #include "./libft/libft.h"
 
-t_stack	*push(t_stack *stack, t_stack **add)
+t_stack	*push(t_stack *stack_a, t_stack **add)
 {
-	t_stack *aux;
+	t_stack *aux = NULL;
 
-	aux = NULL;
-	if (ft_list_size(stack) > 0)
+	if (ft_list_size(*add) > 0)
 	{
-		aux = *add;
-		*add = (*add)->next;
-		aux->next = stack;
+		aux = (*add);
+		(*add) = (*add)->next;
+		aux->next = stack_a;
 	}
 	return (aux);
 }

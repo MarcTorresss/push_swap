@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:31:50 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/25 18:49:20 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:53:58 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ typedef struct s_stack
 int			ft_error_test(int argc, char **argv, t_stack *stack_a);
 t_stack		*ft_save_num(int argc, char **argv, t_stack *stack_a, int i);
 int			ft_list_size(t_stack *lst);
-void		ft_list_add_back(t_stack **lst, t_stack *new);
-void		ft_list_add_front(t_stack **lst, t_stack *new);
-t_stack		*ft_last_list_value(t_stack *lst);
+void		ft_lstfree(t_stack **stack_a);
 t_stack		*reverse_rotate(t_stack *stack);
 t_stack		*rra_reverse_rotate(t_stack *stack_a);
 t_stack		*rrb__reverse_rotate(t_stack *stack_b);
@@ -40,7 +38,7 @@ t_stack		*ra_rotate(t_stack *stack_a);
 t_stack		*rb_rotate(t_stack *stack_b);
 void		rr_rotate(t_stack **stack_a, t_stack **stack_b);
 t_stack		*swap(t_stack *stack);
-t_stack		*sa_sawp(t_stack *stack_a);
+t_stack		*sa_swap(t_stack *stack_a);
 t_stack		*sb_swap(t_stack *stack_b);
 void		ss_swap(t_stack **stack_a, t_stack **stack_b);
 t_stack		*push(t_stack *stack, t_stack **add);
@@ -48,7 +46,10 @@ void		pa_push(t_stack **stack_a, t_stack **stack_b);
 void		pb_push(t_stack **stack_a, t_stack **stack_b);
 void		two_nums(t_stack **stack);
 void		three_nums(t_stack **stack);
-void		four_nums(t_stack **stack);
+void		four_nums(t_stack **stack, t_stack **stack_b);
 int			find_min(t_stack *stack);
+void		five_nums(t_stack **stack, t_stack **stack_b);
+void		len_stack(t_stack **stack_a, t_stack **stack_b);
+void		sort_all(t_stack **stack_a, t_stack **stack_b);
 
 #endif

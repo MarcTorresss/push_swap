@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 18:05:18 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/25 13:11:30 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/25 19:49:48 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ t_stack	*rrb__reverse_rotate(t_stack *stack_b)
 
 void	rrr_rotate(t_stack **stack_a, t_stack **stack_b)
 {
-	//COMPROVAR
 	*stack_a = reverse_rotate(*stack_a);
 	*stack_b = reverse_rotate(*stack_b);
 	ft_printf("rrr\n");
