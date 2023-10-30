@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:30:02 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/26 12:54:20 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/30 11:24:22 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,17 @@ int	ft_list_size(t_stack *lst)
 		i++;
 	}
 	return (i);
+}
+
+void ft_free_split( char **mat)
+{
+	int i;
+
+	i = 0;
+	while (mat[i])
+	{
+		free(mat[i]);
+		i++;
+	}
+	free(mat);
 }

@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:26:34 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/26 15:47:47 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/30 14:04:23 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ void	len_stack(t_stack **stack_a, t_stack **stack_b)
 }
 void print_stacks (t_stack *stack_a, t_stack *stack_b)
 {
-	printf("\nStack A\n");
+	ft_printf("\nStack A\n");
 	while (stack_a != NULL)
 	{
 
-		printf("%d\n", stack_a->content);
+		ft_printf("%d\n", stack_a->content);
 		stack_a = stack_a->next;
 	}
-	printf("\nStack B\n");
+	ft_printf("\nStack B\n");
 	while (stack_b != NULL)
 	{
-		printf("%d\n", stack_b->content);
+		ft_printf("%d\n", stack_b->content);
 		stack_b = stack_b->next;
 	}
 }

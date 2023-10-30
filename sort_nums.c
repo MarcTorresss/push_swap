@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:19:53 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/26 11:54:20 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/30 17:12:39 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,25 @@ void	three_nums(t_stack **stack)
 		(*stack) = sa_swap(*stack);
 }
 
-int find_min(t_stack *stack)
+int find_min(t_stack *stack, int *auxpos)
 {
 	int 	min;
 	int 	pos;
-	int		auxpos;
 
 	min = stack->content;
 	pos = 0;
-	auxpos = 0;
+	*auxpos = 0;
 	while (stack != NULL)
 	{
 		if (stack->content < min)
 		{
 			min = stack->content;
-			auxpos = pos;
+			*auxpos = pos;
 		}
 		stack = stack->next;
 		pos++;
 	}
-	return (auxpos);
+	return (min);
 }
 
 void	four_nums(t_stack **stack, t_stack **stack_b)
@@ -56,7 +55,7 @@ void	four_nums(t_stack **stack, t_stack **stack_b)
 	int	posmin;
 	int	i;
 	
-	posmin = find_min(*stack);
+	find_min(*stack, &posmin);
 	i = 0;
 	while (i < posmin)
 	{
@@ -73,7 +72,7 @@ void	five_nums(t_stack **stack, t_stack **stack_b)
 	int	posmin;
 	int	i;
 	
-	posmin = find_min(*stack);
+	find_min(*stack, &posmin);
 	i = 0;
 	while (i < posmin)
 	{

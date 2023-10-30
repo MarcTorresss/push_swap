@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:31:50 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/26 12:53:58 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/30 18:36:41 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <limits.h>
+
+typedef struct s_moves
+{
+	int				ra;
+	int				rb;
+	int				rr;
+	int				rra;
+	int				rrb;
+	int				rrr;
+	struct s_moves	*next;
+}					t_moves;
 
 typedef struct s_stack
 {
@@ -47,9 +58,10 @@ void		pb_push(t_stack **stack_a, t_stack **stack_b);
 void		two_nums(t_stack **stack);
 void		three_nums(t_stack **stack);
 void		four_nums(t_stack **stack, t_stack **stack_b);
-int			find_min(t_stack *stack);
+int			find_min(t_stack *stack, int *pos);
 void		five_nums(t_stack **stack, t_stack **stack_b);
 void		len_stack(t_stack **stack_a, t_stack **stack_b);
-void		sort_all(t_stack **stack_a, t_stack **stack_b);
+int			sort_all(t_stack **stack_a, t_stack **stack_b);
+void		ft_free_split( char **mat);
 
 #endif
