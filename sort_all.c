@@ -78,16 +78,22 @@ int	is_sorted(t_stack *stack_a)
 
 t_moves	*calc_best_move(t_stack *stack_a, t_stack *stack_b)
 {
-	t_moves	*moves;
+	t_moves moves;
+	t_moves aux;
 	int		i;
 
 	i = 0;
-	moves = malloc(sizeof(t_moves));
-	if (!moves)
-		return (0);
-	moves->rb = pos_num(stack_a->content, stack_b);
-	//(void) stack_a;
-	//(void) stack_b;
+	while (stack_a->next != NULL)
+	{
+				moves.ra = i;
+				moves.rb = pos_num(stack_a->content, stack_b);
+				moves.total = moves.ra + moves.rb;
+				if (aux.total < moves.total)
+				{
+					
+				}
+				aux = moves;
+	}
 	return (moves);
 }
 int	do_rotate(t_stack *stack_a, t_stack *stack_b, t_moves *moves)
