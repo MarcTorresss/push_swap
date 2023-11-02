@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 18:05:18 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/25 19:49:48 by martorre         ###   ########.fr       */
+/*   Updated: 2023/10/31 14:23:31 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_stack	*rra_reverse_rotate(t_stack *stack_a)
 	return (reverse_rotate(stack_a));
 }
 
-t_stack	*rrb__reverse_rotate(t_stack *stack_b)
+t_stack	*rrb_reverse_rotate(t_stack *stack_b)
 {
 	ft_printf("rrb\n");
 	return (reverse_rotate(stack_b));
