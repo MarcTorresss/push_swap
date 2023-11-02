@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:16:38 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/30 11:24:15 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/02 11:02:51 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,10 @@ int	ft_error_test(int argc, char **argv, t_stack *stack_a)
 	else
 	{
 		while (++i < argc)
+		{
 			if (ft_int_test(argv[i]) == 1)
 				return (ft_putstr("Error\n"), ft_lstfree(&stack_a), 1);
+		}
 		if (ft_dup_test(argc, argv, 1) == 0)
 			stack_a = ft_save_num(argc, argv, stack_a, 1);
 		else

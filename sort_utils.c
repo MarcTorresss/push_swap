@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:30:17 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/31 14:43:07 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/02 12:11:24 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,26 @@ int find_max(t_stack *stack, int *auxpos)
 	return (max);
 }
 
+int find_min(t_stack *stack, int *auxpos)
+{
+	int 	min;
+	int 	pos;
+
+	min = stack->content;
+	pos = 0;
+	*auxpos = 0;
+	while (stack != NULL)
+	{
+		if (stack->content < min)
+		{
+			min = stack->content;
+			*auxpos = pos;
+		}
+		stack = stack->next;
+		pos++;
+	}
+	return (min);
+}
 int	is_sorted(t_stack *stack_a)
 {
 	int	out;

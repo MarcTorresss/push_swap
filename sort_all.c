@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:24:57 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/31 15:02:30 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/02 13:20:56 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	pos_num(int num, t_stack *stack_b)
 	return (auxpos);
 }
 
-int	do_rbra_or_rrbrra(t_stack **stack_a, t_stack **stack_b)
+void	do_rbra_or_rrbrra(t_stack **stack_a, t_stack **stack_b)
 {
 	t_moves	moves;
 	int		i;
@@ -53,31 +53,42 @@ int	do_rbra_or_rrbrra(t_stack **stack_a, t_stack **stack_b)
 	{
 		i = 0;
 		moves = calc_best_move (*stack_a, *stack_b);
-		if (moves.rb < ft_list_size(*stack_b) / 2)
+		if (moves.rb < moves.rrb)
 			do_rb(stack_b, moves);
 		else
 			do_rrb(stack_b, moves);
-		if (moves.ra < ft_list_size(*stack_a) / 2)
+		if (moves.ra < moves.rra)
 			do_ra(stack_a, moves);
 		else 
 			do_rra(stack_a, moves);
 		pb_push(stack_a, stack_b);
 	}
-	return (0);
 }
 
-int	sort_all(t_stack **stack_a, t_stack **stack_b)
+t_moves	calc_best_move(t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack	*tmp;
+	t_moves	moves;
+	t_moves	aux;
+	int		pos;
 
-	tmp = *stack_a;
-	if (is_sorted(*stack_a) == 1)
+	moves = init_moves();
+	aux = init_moves();
+	pos = 0;
+	while (stack_a != NULL)
 	{
-		pb_push(stack_a, stack_b);
-		pb_push(stack_a, stack_b);
-		do_rbra_or_rrbrra(stack_a, stack_b);
-		doit_rrb(stack_b);
-		doit_pa(stack_a, stack_b);
+		pos = pos_num(stack_a->content, stack_b);
+		if (pos < (ft_list_size(stack_a) / 2))
+			aux.ra = pos;
+		else
+			aux.rra = ft_list_size(stack_a) - pos;
+		if (pos < (ft_list_size(stack_b) / 2))
+			aux.rb = pos;
+		else
+			aux.rrb = ft_list_size(stack_b) - pos;
+		aux.total = aux.ra + aux.rb + aux.rra + aux.rrb;
+		if (moves.total > aux.total)
+			moves = aux;
+		stack_a = stack_a->next;
 	}
-	return (0);
+	return (moves);
 }

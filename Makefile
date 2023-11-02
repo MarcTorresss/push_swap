@@ -6,7 +6,7 @@
 #    By: martorre <martorre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 14:18:06 by martorre          #+#    #+#              #
-#    Updated: 2023/10/31 15:32:42 by martorre         ###   ########.fr        #
+#    Updated: 2023/11/02 12:13:00 by martorre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = cc
 DIR_OBJ = temp/
 
 SOURCES = main.c input_check.c lst_utils.c push.c reverse_rotate.c rotate.c\
-swap.c sort_nums.c sort_all.c sort_utils.c sort_opt.c sort_calc.c\
+swap.c sort_nums.c sort_all.c sort_utils.c sort_opt.c\
 
 OBJECTS = $(addprefix $(DIR_OBJ), $(SOURCES:.c=.o))
 
