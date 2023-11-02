@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:19:53 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/02 13:15:53 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:45:17 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	sort_all(t_stack **stack_a, t_stack **stack_b)
 		pb_push(stack_a, stack_b);
 		pb_push(stack_a, stack_b);
 		do_rbra_or_rrbrra(stack_a, stack_b);
-		//doit_rrb(stack_b);
-		//doit_pa(stack_a, stack_b);
+		doit_rrb(stack_b);
+		doit_pa(stack_a, stack_b);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:30:17 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/02 12:11:24 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:15:53 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ t_moves	init_moves(void)
 
 	moves.ra = 0;
 	moves.rb = 0;
+	moves.rra = 0;
+	moves.rrb = 0;
+	moves.rr = 0;
+	moves.rrr = 0;
 	moves.total = INT_MAX;
 	return (moves);
 }

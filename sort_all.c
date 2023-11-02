@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:24:57 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/02 13:20:56 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:32:25 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,32 @@ void	do_rbra_or_rrbrra(t_stack **stack_a, t_stack **stack_b)
 	{
 		i = 0;
 		moves = calc_best_move (*stack_a, *stack_b);
-		if (moves.rb < moves.rrb)
-			do_rb(stack_b, moves);
-		else
-			do_rrb(stack_b, moves);
-		if (moves.ra < moves.rra)
-			do_ra(stack_a, moves);
-		else 
-			do_rra(stack_a, moves);
+		do_rb(stack_b, moves);
+		do_rrb(stack_b, moves);
+		do_ra(stack_a, moves);
+		do_rra(stack_a, moves);
 		pb_push(stack_a, stack_b);
 	}
+}
+t_moves	calc_moves(t_moves moves, int i, t_stack *stack_a, t_stack *stack_b)
+{
+	int	len_a;
+	int	len_b;
+	int	pos;
+
+	len_a = ft_list_size(stack_a);
+	len_b = ft_list_size(stack_b);
+	pos = pos_num(stack_a->content, stack_b);
+	if (i < (len_a / 2))
+		moves.ra = i;
+	else
+		moves.rra = len_a - i;
+	if (pos < (len_b / 2))
+		moves.rb = pos;
+	else
+		moves.rrb = len_b - pos;
+	moves.total = moves.ra + moves.rb + moves.rra + moves.rrb;
+	return (moves);
 }
 
 t_moves	calc_best_move(t_stack *stack_a, t_stack *stack_b)
@@ -70,25 +86,20 @@ t_moves	calc_best_move(t_stack *stack_a, t_stack *stack_b)
 	t_moves	moves;
 	t_moves	aux;
 	int		pos;
+	int		i;
 
-	moves = init_moves();
 	aux = init_moves();
 	pos = 0;
+	i = 0;
 	while (stack_a != NULL)
 	{
-		pos = pos_num(stack_a->content, stack_b);
-		if (pos < (ft_list_size(stack_a) / 2))
-			aux.ra = pos;
-		else
-			aux.rra = ft_list_size(stack_a) - pos;
-		if (pos < (ft_list_size(stack_b) / 2))
-			aux.rb = pos;
-		else
-			aux.rrb = ft_list_size(stack_b) - pos;
-		aux.total = aux.ra + aux.rb + aux.rra + aux.rrb;
-		if (moves.total > aux.total)
-			moves = aux;
+		moves = init_moves();
+		moves = calc_moves(moves, i, stack_a, stack_b);
+		moves = check_rr_rrr(moves);
+		if (moves.total < aux.total)
+			aux = moves;
 		stack_a = stack_a->next;
+		i++;
 	}
-	return (moves);
+	return (aux);
 }

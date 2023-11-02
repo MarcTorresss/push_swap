@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:31:50 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/02 12:54:31 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:01:19 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,7 @@ void		doit_rrb(t_stack **stack_b);
 int			pos_num(int num, t_stack *stack_b);
 void		do_rbra_or_rrbrra(t_stack **stack_a, t_stack **stack_b);
 t_moves		calc_best_move(t_stack *stack_a, t_stack *stack_b);
+t_moves		check_rr_rrr(t_moves moves);
+
 
 #endif
