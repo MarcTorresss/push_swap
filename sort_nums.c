@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:19:53 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/02 15:45:17 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:50:29 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	four_nums(t_stack **stack, t_stack **stack_b)
 {
 	int	posmin;
 	int	i;
-	
+
 	find_min(*stack, &posmin);
 	i = 0;
 	while (i < posmin)
@@ -50,7 +50,7 @@ void	five_nums(t_stack **stack, t_stack **stack_b)
 {
 	int	posmin;
 	int	i;
-	
+
 	find_min(*stack, &posmin);
 	i = 0;
 	while (i < posmin)
@@ -65,9 +65,6 @@ void	five_nums(t_stack **stack, t_stack **stack_b)
 
 void	sort_all(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*tmp;
-
-	tmp = *stack_a;
 	if (is_sorted(*stack_a) == 1)
 	{
 		pb_push(stack_a, stack_b);

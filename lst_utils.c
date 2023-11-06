@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:30:02 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/30 11:24:22 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:42:06 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_stack	*ft_save_num(int limit, char **str, t_stack *stack_a, int i)
 
 int	ft_list_size(t_stack *lst)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (lst != NULL)
@@ -61,9 +61,9 @@ int	ft_list_size(t_stack *lst)
 	return (i);
 }
 
-void ft_free_split( char **mat)
+void	ft_free_split(char **mat)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (mat[i])

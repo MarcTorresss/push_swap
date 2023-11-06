@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:30:17 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/02 15:15:53 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:11:57 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	doit_pa(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void doit_rrb(t_stack **stack_b)
+void	doit_rrb(t_stack **stack_b)
 {
 	int	pos;
 	int	len;
@@ -58,10 +58,10 @@ t_moves	init_moves(void)
 	return (moves);
 }
 
-int find_max(t_stack *stack, int *auxpos)
+int	find_max(t_stack *stack, int *auxpos)
 {
-	int 	max;
-	int 	pos;
+	int	max;
+	int	pos;
 
 	max = stack->content;
 	pos = 0;
@@ -79,10 +79,10 @@ int find_max(t_stack *stack, int *auxpos)
 	return (max);
 }
 
-int find_min(t_stack *stack, int *auxpos)
+int	find_min(t_stack *stack, int *auxpos)
 {
-	int 	min;
-	int 	pos;
+	int	min;
+	int	pos;
 
 	min = stack->content;
 	pos = 0;
@@ -99,6 +99,7 @@ int find_min(t_stack *stack, int *auxpos)
 	}
 	return (min);
 }
+
 int	is_sorted(t_stack *stack_a)
 {
 	int	out;

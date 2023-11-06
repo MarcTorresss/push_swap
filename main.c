@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:26:34 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/31 14:24:22 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:52:57 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	len_stack(t_stack **stack_a, t_stack **stack_b)
 	else
 		sort_all(stack_a, stack_b);
 }
-void print_stacks (t_stack *stack_a, t_stack *stack_b)
+
+void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_printf("\nStack A\n");
 	while (stack_a != NULL)
 	{
-
 		ft_printf("%d\n", stack_a->content);
 		stack_a = stack_a->next;
 	}
@@ -45,6 +45,7 @@ void print_stacks (t_stack *stack_a, t_stack *stack_b)
 		stack_b = stack_b->next;
 	}
 }
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -59,7 +60,7 @@ int	main(int argc, char **argv)
 	if (ft_error_test(argc, argv, stack_a) == 0)
 	{
 		len_stack(&stack_a, &stack_b);
-		print_stacks(stack_a, stack_b);
+		//print_stacks(stack_a, stack_b);
 		ft_lstfree(&stack_a);
 	}
 }

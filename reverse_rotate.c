@@ -6,21 +6,21 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 18:05:18 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/31 14:23:31 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:12:25 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
 #include "./libft/libft.h"
+#include "./push_swap.h"
 
 t_stack	*reverse_rotate(t_stack *stack)
 {
 	t_stack	*tmp;
 	t_stack	*aux;
-	
+
 	tmp = NULL;
 	aux = stack;
-	if (ft_list_size(stack) > 0)
+	if (ft_list_size(stack) > 1)
 	{
 		while (stack->next->next != NULL)
 			stack = stack->next;
@@ -48,4 +48,13 @@ void	rrr_rotate(t_stack **stack_a, t_stack **stack_b)
 	*stack_a = reverse_rotate(*stack_a);
 	*stack_b = reverse_rotate(*stack_b);
 	ft_printf("rrr\n");
+}
+
+void	do_rrr(t_stack **stack_a, t_stack **stack_b, t_moves moves)
+{
+	while (moves.rrr > 0)
+	{
+		rrr_rotate(stack_a, stack_b);
+		moves.rrr--;
+	}
 }

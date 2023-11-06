@@ -6,12 +6,12 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:54:27 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/25 19:49:40 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:12:20 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
 #include "./libft/libft.h"
+#include "./push_swap.h"
 
 t_stack	*rotate(t_stack *stack)
 {
@@ -47,4 +47,13 @@ void	rr_rotate(t_stack **stack_a, t_stack **stack_b)
 	*stack_a = rotate(*stack_a);
 	*stack_b = rotate(*stack_b);
 	ft_printf("rr\n");
+}
+
+void	do_rr(t_stack **stack_a, t_stack **stack_b, t_moves moves)
+{
+	while (moves.rr > 0)
+	{
+		rr_rotate(stack_a, stack_b);
+		moves.rr--;
+	}
 }

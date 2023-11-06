@@ -6,12 +6,12 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:52:05 by martorre          #+#    #+#             */
-/*   Updated: 2023/10/26 11:49:06 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:11:36 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
 #include "./libft/libft.h"
+#include "./push_swap.h"
 
 t_stack	*swap(t_stack *stack)
 {
