@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:26:34 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/06 19:52:57 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/07 12:32:06 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,9 @@ int	main(int argc, char **argv)
 	stack_a = malloc(sizeof(t_stack));
 	if (!stack_a)
 		return (0);
-	if (ft_error_test(argc, argv, stack_a) == 0)
+	if (ft_error_test(argc, argv, &stack_a) == 0)
 	{
+		//ft_printf ("ARGC: %d LEN: %d\n",argc, ft_list_size(stack_a));
 		len_stack(&stack_a, &stack_b);
 		//print_stacks(stack_a, stack_b);
 		ft_lstfree(&stack_a);

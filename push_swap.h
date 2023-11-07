@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:31:50 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/06 12:02:39 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:29:36 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-int			ft_error_test(int argc, char **argv, t_stack *stack_a);
+int			ft_error_test(int argc, char **argv, t_stack **stack_a);
 t_stack		*ft_save_num(int argc, char **argv, t_stack *stack_a, int i);
 int			ft_list_size(t_stack *lst);
 void		ft_lstfree(t_stack **stack_a);
