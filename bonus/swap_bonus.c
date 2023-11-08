@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:52:05 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/08 13:16:55 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/08 19:09:19 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
-#include "./push_swap.h"
+#include "../libft/libft.h"
+#include "./push_swap_bonus.h"
 
 t_stack	*swap(t_stack *stack)
 {
@@ -29,13 +29,11 @@ t_stack	*swap(t_stack *stack)
 
 t_stack	*sa_swap(t_stack *stack_a)
 {
-	ft_printf("sa\n");
 	return (swap(stack_a));
 }
 
 t_stack	*sb_swap(t_stack *stack_b)
 {
-	ft_printf("sb\n");
 	return (swap(stack_b));
 }
 
@@ -43,5 +41,4 @@ void	ss_swap(t_stack **stack_a, t_stack **stack_b)
 {
 	*stack_a = swap(*stack_a);
 	*stack_b = swap(*stack_b);
-	ft_printf("ss\n");
 }

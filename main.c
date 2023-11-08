@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:26:34 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/07 12:32:06 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/08 19:37:16 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	len_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	int	len_sack;
 
-	len_sack = ft_list_size(*stack_a);
+	len_sack = ft_stack_size(*stack_a);
 	if (len_sack == 2)
 		two_nums(stack_a);
 	else if (len_sack == 3)
@@ -59,9 +59,8 @@ int	main(int argc, char **argv)
 		return (0);
 	if (ft_error_test(argc, argv, &stack_a) == 0)
 	{
-		//ft_printf ("ARGC: %d LEN: %d\n",argc, ft_list_size(stack_a));
 		len_stack(&stack_a, &stack_b);
 		//print_stacks(stack_a, stack_b);
-		ft_lstfree(&stack_a);
+		ft_stack_free(&stack_a);
 	}
 }

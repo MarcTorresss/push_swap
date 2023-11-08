@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:54:27 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/08 17:04:43 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/08 19:10:24 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
-#include "./push_swap.h"
+#include "../libft/libft.h"
+#include "./push_swap_bonus.h"
 
 t_stack	*rotate(t_stack *stack)
 {
@@ -29,13 +29,11 @@ t_stack	*rotate(t_stack *stack)
 
 t_stack	*ra_rotate(t_stack *stack_a)
 {
-	ft_printf("ra\n");
 	return (rotate(stack_a));
 }
 
 t_stack	*rb_rotate(t_stack *stack_b)
 {
-	ft_printf("rb\n");
 	return (rotate(stack_b));
 }
 
@@ -43,7 +41,6 @@ void	rr_rotate(t_stack **stack_a, t_stack **stack_b)
 {
 	*stack_a = rotate(*stack_a);
 	*stack_b = rotate(*stack_b);
-	ft_printf("rr\n");
 }
 
 void	do_rr(t_stack **stack_a, t_stack **stack_b, t_moves moves)

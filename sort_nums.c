@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:19:53 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/06 19:50:29 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/08 13:17:23 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,19 @@ void	four_nums(t_stack **stack, t_stack **stack_b)
 
 void	five_nums(t_stack **stack, t_stack **stack_b)
 {
-	int	posmin;
-	int	i;
+	int		posmin;
+	int		i;
+	t_moves	moves;
 
 	find_min(*stack, &posmin);
 	i = 0;
-	while (i < posmin)
-	{
-		(*stack) = ra_rotate(*stack);
-		i++;
-	}
+	moves = init_moves();
+	if (posmin <= (ft_stack_size(*stack) / 2))
+		moves.ra = posmin;
+	else
+		moves.rra = ft_stack_size(*stack) - posmin;
+	do_ra(stack, moves);
+	do_rra(stack, moves);
 	pb_push(stack, stack_b);
 	four_nums(stack, stack_b);
 	pa_push(stack, stack_b);

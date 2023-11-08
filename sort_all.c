@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:24:57 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/07 12:31:11 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/08 17:04:57 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,12 @@ t_moves	calc_moves(int len_a, int i, t_stack *stack_a, t_stack *stack_b)
 	t_moves	moves;
 
 	moves = init_moves();
-	len_b = ft_list_size(stack_b);
-	//ft_printf("LEN_B - %d -----------------------\n",len_b);
+	len_b = ft_stack_size(stack_b);
 	pos = pos_num(stack_a->content, stack_b);
-	(void) len_a;
-	printf("Valor de la I = %d\n", i);
-	//if (i < (len_a / 2))
+	if (i <= (len_a / 2))
 		moves.ra = i;
-	//else
-	//	moves.rra = len_a - i;
+	else
+		moves.rra = len_a - i;
 	if (pos < (len_b / 2))
 		moves.rb = pos;
 	else
@@ -94,8 +91,7 @@ t_moves	calc_best_move(t_stack *stack_a, t_stack *stack_b)
 	aux = init_moves();
 	pos = 0;
 	i = 0;
-	len_a = ft_list_size(stack_a);
-	//ft_printf("LEN_A - %d -----------------------\n",len_a);
+	len_a = ft_stack_size(stack_a);
 	while (stack_a != NULL)
 	{
 		moves = init_moves();
