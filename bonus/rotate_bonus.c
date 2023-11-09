@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:54:27 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/08 19:10:24 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/09 10:34:08 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@ t_stack	*rotate(t_stack *stack)
 
 	aux = stack;
 	tmp = stack->next;
-	while (stack->next != NULL)
-		stack = stack->next;
-	stack->next = aux;
-	aux->next = NULL;
+	if (ft_stack_size(stack) > 1)
+	{
+		while (stack->next != NULL)
+			stack = stack->next;
+		stack->next = aux;
+		aux->next = NULL;
+	}
 	return (tmp);
 }
 

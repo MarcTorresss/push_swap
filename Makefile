@@ -6,13 +6,13 @@
 #    By: martorre <martorre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 14:18:06 by martorre          #+#    #+#              #
-#    Updated: 2023/11/08 13:53:15 by martorre         ###   ########.fr        #
+#    Updated: 2023/11/09 11:39:22 by martorre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 	= push_swap
 BONUS_NAME = checker
-FLAGS 	= -Wall -Wextra -Werror -I./libft #-fsanitize=address
+FLAGS 	= -Wall -Wextra -Werror -I./libft
 INCLUDE = push_swap.h
 CC = cc
 DIR_OBJ = temp/

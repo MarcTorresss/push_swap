@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:26:34 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/08 19:37:16 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:33:26 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+//print_stacks(stack_a, stack_b);
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -60,7 +61,6 @@ int	main(int argc, char **argv)
 	if (ft_error_test(argc, argv, &stack_a) == 0)
 	{
 		len_stack(&stack_a, &stack_b);
-		//print_stacks(stack_a, stack_b);
 		ft_stack_free(&stack_a);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:35:44 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/08 19:10:52 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:05:49 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	ft_mat_test(char **mat, int qttwords, t_stack *stack_a)
 		stack_a = ft_save_num(qttwords, mat, stack_a, 0);
 	else
 		return (1);
+	ft_free_split(mat);
 	return (0);
 }
 
@@ -99,14 +100,16 @@ int	ft_error_test(int argc, char **argv, t_stack **stack_a)
 			return (ft_putstr_fd("Error\n", 2), ft_stack_free(stack_a), 1);
 		if (ft_mat_test(mat, qttwords, *stack_a) == 1)
 			return (ft_free_split(mat), ft_stack_free(stack_a), 1);
-		ft_free_split(mat);
 	}
-	while (++i < argc)
-		if (ft_int_test(argv[i]) == 1)
-			return (ft_putstr_fd("Error\n", 2), ft_stack_free(stack_a), 1);
-	if (ft_dup_test(argc, argv, 1) == 0)
-		*stack_a = ft_save_num(argc, argv, *stack_a, 1);
 	else
-		return (ft_stack_free(stack_a), 1);
+	{
+		while (++i < argc)
+			if (ft_int_test(argv[i]) == 1)
+				return (ft_putstr_fd("Error\n", 2), ft_stack_free(stack_a), 1);
+		if (ft_dup_test(argc, argv, 1) == 0)
+			*stack_a = ft_save_num(argc, argv, *stack_a, 1);
+		else
+			return (ft_stack_free(stack_a), 1);
+	}
 	return (0);
 }

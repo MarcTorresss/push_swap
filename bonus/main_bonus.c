@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:45:15 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/08 19:49:41 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:01:14 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,6 @@ int	is_sorted(t_stack *stack_a)
 	return (out);
 }
 
-int	do_more_moves(t_stack **stack_a, t_stack **stack_b, char *move)
-{
-	if (ft_strcmp(move, "pa\n") == 0)
-	{
-		if (ft_stack_size(*stack_b) > 0)
-			pa_push(stack_a, stack_b);
-	}
-	else if (ft_strcmp(move, "pb\n") == 0)
-	{
-		if (ft_stack_size(*stack_a) > 0)
-			pb_push(stack_a, stack_b);
-	}
-	else
-		return (1);
-	return (0);
-}
 int	do_moves(t_stack **stack_a, t_stack **stack_b, char *move)
 {
 	if (ft_strcmp(move, "ra\n") == 0)
@@ -53,22 +37,25 @@ int	do_moves(t_stack **stack_a, t_stack **stack_b, char *move)
 		sa_swap(*stack_a);
 	else if (ft_strcmp(move, "rra\n") == 0)
 		*stack_a = rra_reverse_rotate(*stack_a);
+	else if (ft_strcmp(move, "pa\n") == 0)
+		pa_push(stack_a, stack_b);
 	else if (ft_strcmp(move, "rb\n") == 0)
 		*stack_b = rb_rotate(*stack_b);
 	else if (ft_strcmp(move, "rrb\n") == 0)
 		*stack_b = rrb_reverse_rotate(*stack_b);
 	else if (ft_strcmp(move, "sb\n") == 0)
 		sb_swap(*stack_b);
-	if (ft_stack_size(*stack_a) > 0 && ft_stack_size(*stack_b) > 0)
-	{
-		if (ft_strcmp(move, "rr\n") == 0)
-			rr_rotate(stack_a, stack_b);
-		else if (ft_strcmp(move, "rrr\n") == 0)
-			rrr_rotate(stack_a, stack_b);
-	}
+	else if (ft_strcmp(move, "pb\n") == 0)
+		pb_push(stack_a, stack_b);
+	else if (ft_strcmp(move, "rr\n") == 0)
+		rr_rotate(stack_a, stack_b);
+	else if (ft_strcmp(move, "rrr\n") == 0)
+		rrr_rotate(stack_a, stack_b);
 	else if (ft_strcmp(move, "ss\n") == 0)
 		ss_swap(stack_a, stack_b);
-	return (do_more_moves(stack_a, stack_b, move));
+	else
+		return (1);
+	return (0);
 }
 
 int	check_gtnl(t_stack **stack_a, t_stack **stack_b)
@@ -82,7 +69,6 @@ int	check_gtnl(t_stack **stack_a, t_stack **stack_b)
 	{
 		if (do_moves(stack_a, stack_b, read) == 0)
 		{
-			//printf("\n%d\n",do_moves(stack_a, stack_b, read));
 			free(read);
 			read = get_next_line(0);
 		}

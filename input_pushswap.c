@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:16:38 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/08 17:10:20 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:06:29 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int	ft_mat_test(char **mat, int qttwords, t_stack *stack_a)
 		stack_a = ft_save_num(qttwords, mat, stack_a, 0);
 	else
 		return (1);
+	ft_free_split(mat);
 	return (0);
 }
 
@@ -101,7 +102,6 @@ int	ft_error_test(int argc, char **argv, t_stack **stack_a)
 			return (ft_putstr_fd("Error\n", 2), ft_stack_free(stack_a), 1);
 		if (ft_mat_test(mat, qttwords, *stack_a) == 1)
 			return (ft_free_split(mat), ft_stack_free(stack_a), 1);
-		ft_free_split(mat);
 	}
 	else
 	{

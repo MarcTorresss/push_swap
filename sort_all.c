@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:24:57 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/08 17:04:57 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:32:29 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	pos_num(int num, t_stack *stack_b)
 	pos = 0;
 	while (stack_b != NULL)
 	{
-		if (num > (stack_b)->content && aux < (stack_b)->content)
+		if ((stack_b)->content < num && (stack_b)->content > aux)
 		{
 			aux = (stack_b)->content;
 			auxpos = pos;
@@ -39,25 +39,6 @@ int	pos_num(int num, t_stack *stack_b)
 		pos++;
 	}
 	return (auxpos);
-}
-
-void	do_rbra_or_rrbrra(t_stack **stack_a, t_stack **stack_b)
-{
-	t_moves	moves;
-
-	moves = init_moves();
-	while ((*stack_a) != NULL)
-	{
-		moves = init_moves();
-		moves = calc_best_move(*stack_a, *stack_b);
-		do_rb(stack_b, moves);
-		do_rrb(stack_b, moves);
-		do_ra(stack_a, moves);
-		do_rra(stack_a, moves);
-		do_rr(stack_a, stack_b, moves);
-		do_rrr(stack_a, stack_b, moves);
-		pb_push(stack_a, stack_b);
-	}
 }
 
 t_moves	calc_moves(int len_a, int i, t_stack *stack_a, t_stack *stack_b)
@@ -105,4 +86,23 @@ t_moves	calc_best_move(t_stack *stack_a, t_stack *stack_b)
 		i++;
 	}
 	return (aux);
+}
+
+void	do_rbra_or_rrbrra(t_stack **stack_a, t_stack **stack_b)
+{
+	t_moves	moves;
+
+	moves = init_moves();
+	while ((*stack_a) != NULL)
+	{
+		moves = init_moves();
+		moves = calc_best_move(*stack_a, *stack_b);
+		do_rb(stack_b, moves);
+		do_rrb(stack_b, moves);
+		do_ra(stack_a, moves);
+		do_rra(stack_a, moves);
+		do_rr(stack_a, stack_b, moves);
+		do_rrr(stack_a, stack_b, moves);
+		pb_push(stack_a, stack_b);
+	}
 }
