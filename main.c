@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:26:34 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/09 12:57:11 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/13 12:40:44 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,19 @@ void	len_stack(t_stack **stack_a, t_stack **stack_b)
 	int	len_sack;
 
 	len_sack = ft_stack_size(*stack_a);
-	if (len_sack == 2)
-		two_nums(stack_a);
-	else if (len_sack == 3)
-		three_nums(stack_a);
-	else if (len_sack == 4)
-		four_nums(stack_a, stack_b);
-	else if (len_sack == 5)
-		five_nums(stack_a, stack_b);
-	else
-		sort_all(stack_a, stack_b);
+	if (is_sorted(*stack_a) == 1)
+	{
+		if (len_sack == 2)
+			two_nums(stack_a);
+		else if (len_sack == 3)
+			three_nums(stack_a);
+		else if (len_sack == 4)
+			four_nums(stack_a, stack_b);
+		else if (len_sack == 5)
+			five_nums(stack_a, stack_b);
+		else
+			sort_all(stack_a, stack_b);
+	}
 }
 
 void	print_stacks(t_stack *stack_a, t_stack *stack_b)
@@ -46,7 +49,6 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-//print_stacks(stack_a, stack_b);
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -60,8 +62,8 @@ int	main(int argc, char **argv)
 		return (0);
 	if (ft_error_test(argc, argv, &stack_a) == 0)
 	{
-		if (is_sorted(stack_a) == 1)
-			len_stack(&stack_a, &stack_b);
+		len_stack(&stack_a, &stack_b);
+		//print_stacks(stack_a, stack_b);
 		ft_stack_free(&stack_a);
 	}
 }

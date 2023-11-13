@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:16:38 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/09 11:06:29 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/13 12:46:39 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_int_test(char *str)
 
 	i = 0;
 	sig = 1;
+	if (str[0] == '\0')
+		return (1);
 	i = its_space(str);
 	if ((str[0] == '+' || str[0] == '-') && str[1] == '\0')
 		return (1);
@@ -40,11 +42,12 @@ int	ft_int_test(char *str)
 		sig *= -1;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9' 
+		&& ft_atol(str) <= INT_MAX && ft_atol(str) >= INT_MIN)
 		i++;
 	if (str[i] != '\0')
 		return (1);
-	if (ft_atol(str) <= INT_MAX && ft_atol(str) >= INT_MIN)
+	else
 		return (0);
 	return (1);
 }
