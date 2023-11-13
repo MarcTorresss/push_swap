@@ -6,7 +6,7 @@
 /*   By: martorre <martorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:26:34 by martorre          #+#    #+#             */
-/*   Updated: 2023/11/09 11:33:26 by martorre         ###   ########.fr       */
+/*   Updated: 2023/11/09 12:57:11 by martorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int	main(int argc, char **argv)
 		return (0);
 	if (ft_error_test(argc, argv, &stack_a) == 0)
 	{
-		len_stack(&stack_a, &stack_b);
+		if (is_sorted(stack_a) == 1)
+			len_stack(&stack_a, &stack_b);
 		ft_stack_free(&stack_a);
 	}
 }

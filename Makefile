@@ -6,7 +6,7 @@
 #    By: martorre <martorre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 14:18:06 by martorre          #+#    #+#              #
-#    Updated: 2023/11/09 11:39:22 by martorre         ###   ########.fr        #
+#    Updated: 2023/11/09 15:20:49 by martorre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,11 +63,11 @@ $(DIR_OBJ)%.o: %.c Makefile $(INCLUDE)
 
 clean:
 	@rm -rf $(DIR_OBJ)
-	@echo Deleting all objs
+	@echo Deleting all objects
 
 fclean: clean
 	@rm -rf $(NAME) $(BONUS_NAME)
-	@echo Deleting all printf
+	@echo Deleting all
 
 re : fclean all
 
